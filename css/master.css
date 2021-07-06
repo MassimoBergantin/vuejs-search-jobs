@@ -1,0 +1,14 @@
+.container {
+    border: 1px solid black;
+    padding: 25px;
+}
+.row {
+    text-align: center;
+}
+.col {
+    padding: 25px;
+}
+.fa-star {
+    cursor: pointer;
+    margin-left: 50px;
+}
