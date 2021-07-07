@@ -111,10 +111,12 @@ new Vue(
                     this.starred.splice(index,1);
                 }
             },
-            addApply: function (index) {
+            sendApply: function (index) {
                 if (!this.applied.includes(index)) {
                     this.applied.push(index);
-                    this.dysplay();
+                    setTimeout(function() {
+                        alert("TI SEI  CANDIDATO CORRETTAMENTE PER QUESTA OFFERTA DI LAVORO!")
+                    },1000);
                 }
             }
         }

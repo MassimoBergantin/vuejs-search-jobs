@@ -84,7 +84,6 @@ La grafica in questo esercizio è trascurabile. Mostriamo delle semplici liste. 
                         </div>
                         <div>
                             <button @click="sendApply(jobs.id)" v-if="!applied.includes(jobs.id)">CANDIDATI</button>
-                            <button v-else @click>Candidatura Inviata</button>
                             <i v-if="!starred.includes(index)" @click="addFav(index)" class="far fa-star"></i>
                             <i v-else @click="unFav(index)" class="fas fa-star"></i>
                         </div>
