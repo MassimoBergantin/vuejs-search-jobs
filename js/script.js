@@ -51,14 +51,14 @@ Vue.config.devtools = true;
 
 new Vue(
     {
-        el:'#search-jobs',
+        el:'#app',
         data: {
             jobs: [
                 {
                     id: 1,
                     company: 'Perferendis',
                     position: 'Developer',
-                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+                    description: 'La ricerca è rivolta a brillanti laureati in Informatica, Scienze dell/informazione, Ingegneria Informatica o Matematica, appassionati di programmazione in linguaggio Java. Il candidato ideale ha maturato almeno 2 anni d?esperienza su J2EE e conosce Db Oracle (PL/SQL). Completano il profilo la facoltà di apprendimento, flessibilità, capacità di lavorare in team, dinamicità e attitudine al problem solving',
                     created_at: '5/22/2021',
                     logo: '',
                     city:  'Roma',
@@ -67,35 +67,57 @@ new Vue(
                     id: 2,
                     company: 'Perferendis',
                     position: 'Developer',
-                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+                    description: 'La ricerca è rivolta a brillanti laureati in Informatica, Scienze dell/informazione, Ingegneria Informatica o Matematica, appassionati di programmazione in linguaggio Java. Il candidato ideale ha maturato almeno 2 anni d?esperienza su J2EE e conosce Db Oracle (PL/SQL). Completano il profilo la facoltà di apprendimento, flessibilità, capacità di lavorare in team, dinamicità e attitudine al problem solving',
                     created_at: '5/22/2021',
                     logo: '',
-                    city:  'Roma',
-                    contract: 'Full-time'
+                    city:  'Milano',
+                    contract: 'Part-time'
                 }, 
                 {
                     id: 3,
                     company: 'Perferendis',
                     position: 'Developer',
-                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+                    description: 'La ricerca è rivolta a brillanti laureati in Informatica, Scienze dell/informazione, Ingegneria Informatica o Matematica, appassionati di programmazione in linguaggio Java. Il candidato ideale ha maturato almeno 2 anni d?esperienza su J2EE e conosce Db Oracle (PL/SQL). Completano il profilo la facoltà di apprendimento, flessibilità, capacità di lavorare in team, dinamicità e attitudine al problem solving',
                     created_at: '5/22/2021',
                     logo: '',
-                    city:  'Roma',
+                    city:  'Venezia',
                     contract: 'Full-time'
                 },
                 {
                     id: 4,
                     company: 'Perferendis',
                     position: 'Developer',
-                    description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
+                    description: 'La ricerca è rivolta a brillanti laureati in Informatica, Scienze dell/informazione, Ingegneria Informatica o Matematica, appassionati di programmazione in linguaggio Java. Il candidato ideale ha maturato almeno 2 anni d?esperienza su J2EE e conosce Db Oracle (PL/SQL). Completano il profilo la facoltà di apprendimento, flessibilità, capacità di lavorare in team, dinamicità e attitudine al problem solving',
                     created_at: '5/22/2021',
                     logo: '',
-                    city:  'Roma',
-                    contract: 'Full-time'
+                    city:  'Torino',
+                    contract: 'Remote'
                 }, 
                 
-            ]
-
+            ],
+            starred: [],
+            applied: []
+            
+        },
+        methods: {
+            addFav: function(index) {
+                if (!this.starred.includes(index)) {
+                    this.starred.push(index)
+                }
+            },
+            unFav: function(id) {
+                if (this.starred.includes(id)) {
+                    let index = this.starred.index.indexOf(id);
+                    this.starred.splice(index,1);
+                }
+            },
+            addApply: function (index) {
+                if (!this.applied.includes(index)) {
+                    this.applied.push(index);
+                    this.dysplay();
+                }
+            }
         }
+        
     }
 )

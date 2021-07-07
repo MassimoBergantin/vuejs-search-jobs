@@ -67,7 +67,7 @@ La grafica in questo esercizio è trascurabile. Mostriamo delle semplici liste. 
     <title>Search-Jobs</title>
 </head>
 <body>
-    <div id="search-jobs">
+    <div id="app">
 
         <div class="container-fluid p-5">
 
@@ -75,47 +75,18 @@ La grafica in questo esercizio è trascurabile. Mostriamo delle semplici liste. 
                 <h1 class="text-center">Search-Jobs</h1>
                 <hr>
                 <hr>
-                <div class="row">
+                <div class="row"   v-for="(jobs,index) in jobs">
                     <div class="col">
                         <div>
-                            <h1>Job1</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nobis error sequi expedita, accusamus voluptatibus quod aperiam vero odio, amet, maxime quis aliquam at necessitatibus sed. Molestias labore earum expedita?
-                            </p>
+                            <h1>{{jobs.company}}</h1>
+                            <span class="p-2">{{jobs.position}}</span> <span class="p-2">{{jobs.city}}</span>
+                            <p>{{jobs.description}}</p>
                         </div>
                         <div>
-                            <button>CANDIDATI</button>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div>
-                            <h1>Job1</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nobis error sequi expedita, accusamus voluptatibus quod aperiam vero odio, amet, maxime quis aliquam at necessitatibus sed. Molestias labore earum expedita?
-                            </p>
-                        </div>
-                        <div>
-                            <button>CANDIDATI</button>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div>
-                            <h1>Job1</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni aut explicabo sed ducimus, expedita officia itaque fuga rerum dolorem velit aspernatur illo sequi tempore asperiores maxime, earum animi. Facilis, eaque!
-                            </p>
-                        </div>
-                        <div>
-                            <button>CANDIDATI</button>
-                            <i class="far fa-star"></i>
+                            <button @click="sendApply(jobs.id)" v-if="!applied.includes(jobs.id)">CANDIDATI</button>
+                            <button v-else @click>Candidatura Inviata</button>
+                            <i v-if="!starred.includes(index)" @click="addFav(index)" class="far fa-star"></i>
+                            <i v-else @click="unFav(index)" class="fas fa-star"></i>
                         </div>
                     </div>
                     <hr>
@@ -126,6 +97,7 @@ La grafica in questo esercizio è trascurabile. Mostriamo delle semplici liste. 
 
     </div>
 
+    
     <script type="text/javascript" src="js/script.js"></script>
 
 </body>
